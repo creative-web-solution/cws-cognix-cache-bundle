@@ -1,0 +1,35 @@
+{
+    "name": "creative-web-solution/cws-cognix-cache-bundle",
+    "description": "Removing the cache of a Cognix-hosted server.",
+    "keywords": [
+        "creative-web-solution",
+        "cws",
+        "bundle",
+        "symfony4",
+        "symfony6",
+        "cognix",
+        "cache",
+        "managing"
+    ],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "CWS",
+            "email": "cws-info@cws-studio.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.1",
+        "ext-curl": "*",
+        "symfony/console": "^4.4 | ^6.1",
+        "symfony/dependency-injection": "^4.4 | ^6.1",
+        "symfony/http-foundation": "^4.4 | ^6.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cws\\Bundle\\CognixCacheBundle\\": "src/"
+        }
+    }
+}
