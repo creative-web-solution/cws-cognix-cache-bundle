@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: false
+        autoconfigure: false
+
+    cws.cognix.cache.command:
+        class: Cws\Bundle\CognixCacheBundle\Cache\Command\OPCacheClearCommand
+        arguments: []
+        tags:
+            - { name: console.command }

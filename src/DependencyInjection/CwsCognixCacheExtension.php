@@ -9,15 +9,15 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class CwsCognixCacheExtension extends Extension
 {
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-        $loader->load('services.xml');
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader->load('services.yaml');
 
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
         $definition = $container->getDefinition('cws.cognix.cache.command');
-        $definition->replaceArgument(0, $config['uri']);
+        $definition->setArgument(0, $config['uri'] ?? null);
     }
 }

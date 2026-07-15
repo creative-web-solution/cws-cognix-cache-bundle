@@ -11,11 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class OPCacheClearCommand extends Command implements CommandInterface
 {
-    /** @var string */
-    private $uri;
-
-    public function __construct(string $uri, string $name = 'cognix:opcache:clear')
-    {
+    public function __construct(
+        string $uri,
+        string $name = 'cognix:opcache:clear'
+    ) {
         parent::__construct($name);
 
         $this->uri = $uri;
@@ -64,7 +63,7 @@ class OPCacheClearCommand extends Command implements CommandInterface
             $httpCode = curl_getinfo($curlAction, CURLINFO_HTTP_CODE);
 
             curl_close($curlAction);
-        } catch (Exception $exception) {
+        } catch (Exception) {
             return self::COMMAND_FAILURE;
         }
 
